@@ -39,6 +39,10 @@ async def create_customer(customer_data: CustomerCreate):
     # Simulate a database operation
     return customer
 
+@app.get("/customers", response_model=list[Customer])
+async def list_customers():
+    return db_customers
+
 @app.post("/transactions")
 async def create_transaction(transaction_data: Transaction):
     # Simulate a database operation
